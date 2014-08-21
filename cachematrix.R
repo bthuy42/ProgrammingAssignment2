@@ -3,14 +3,15 @@
 
 ## Write a short comment describing this 
 ## The makeCacheMatrix function will do the following:
-## --  Create a special "matrix"
+## --   Create a special "matrix" ... the following methods
+##      are available in this function:
+##      1.  set:  initialize value of matrix
+##      2.  get:  returns the value of the matrix
+##      3.  cache:  call solve() to get inverse matrix and stores it
+##      4.  getcache:   get inverse matrix from cache
 
 makeCacheMatrix <- function(x = matrix()) {
-    ## inverse.matrix <- diag(nrow(x)) %/% x
     invx <- NULL
-    # print(paste("x is: ", x))
-    # invx <- solve(x)
-    # print(paste("invers of x is:  ", invx))
     
     set <- function(y) {
         x <<- y
@@ -19,9 +20,8 @@ makeCacheMatrix <- function(x = matrix()) {
     get <- function() x
     cache <- function(solve) invx <<- solve
     getcache <- function() invx
-    # invx <<- solve(x)
+    
     list(set=set, get=get, cache=cache, getcache=getcache)
-    # return (invx)
 }
 
 ## Write a short comment describing this function
@@ -32,14 +32,14 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
-    ## invx <- makeCacheMatrix(x)
+    
     invx <- x$getcache()
     if (!is.null(invx)) {
         message("retrieving cached data ...")
         return(invx)
     }
-    data <- x$get()
-    invx <- solve(data, ...)
+    smatrix <- x$get()
+    invx <- solve(smatrix, ...)
     x$cache(invx)
     invx
     
