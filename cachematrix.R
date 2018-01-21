@@ -20,7 +20,6 @@ makeCacheMatrix <- function(x = matrix()) {
     list(set=set, get=get, cache=cache, getcache=getcache)
 }
 
-## Write a short comment describing this function
 ## cacheSolve() computes the inverse of the special "matrix"
 ##      returned by makeCacheMatrix()
 ## if inverse has been calculated (and the matrix has not changed),
