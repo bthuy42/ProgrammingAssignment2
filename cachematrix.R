@@ -1,7 +1,3 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this 
 ## The makeCacheMatrix function will do the following:
 ## --   Create a special "matrix" ... the following methods
 ##      are available in this function:
